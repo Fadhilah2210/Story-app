@@ -1,0 +1,79 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Story App</title><link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/><link rel="stylesheet" href="styles.css"/><link rel="manifest" href="/manifest.json"/><meta name="theme-color" content="#4a90e2"/><link rel="icon" href="icons/icon-192.png" sizes="192x192" type="image/png"/><style>header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        background: linear-gradient(to right, #1387f3, #bf4fa3);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo-link {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+      }
+
+      .logo-link img {
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        text-decoration: underline;
+      }
+
+      #skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: #000;
+        color: #fff;
+        padding: 8px 16px;
+        z-index: 100;
+        text-decoration: none;
+        transition: top 0.3s;
+      }
+
+      #skip-link:focus {
+        top: 0;
+      }
+
+      @media screen and (max-width: 768px) {
+        .navbar-container {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 1rem;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          gap: 0.75rem;
+          margin-top: 1rem;
+        }
+      }</style><script defer="defer" src="bundle.js"></script></head><body><a href="#main-content" id="skip-link">Skip to Content</a><header><div class="navbar-container"><a href="#/" class="logo-link"><img src="icons/icon-192.png" alt="StoryApp Logo"/> StoryApp</a><div class="nav-links"><a href="#/">🏠 Home</a> <a href="#/new">➕ Add Story</a> <a href="#/login" id="logout-button">🔓 Logout</a> <a href="#/saved" id="offline-stories-link">📚 Lihat Cerita Offline</a></div></div></header><main id="main-content" style="padding-top: 100px;"><div id="app"></div></main><footer>© Coding Camp 2025</footer><script src="https://unpkg.com/leaflet/dist/leaflet.js"></script><script type="module" src="../src/index.js"></script></body></html>
