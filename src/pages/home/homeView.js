@@ -123,7 +123,7 @@ export default class HomePage {
         marker.on('click', () => {
           setTimeout(() => {
             marker.openPopup();
-          }, 10); // memberi waktu DOM siap
+          }, 10); 
         });
       }
     });

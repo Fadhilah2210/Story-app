@@ -22,7 +22,7 @@ export const saveStory = async (story) => {
 // Fungsi untuk mengambil semua cerita dari IndexedDB
 export const getAllStories = async () => {
   const db = await dbPromise;
-  return db.getAll(STORE_NAME);  // Mendapatkan semua cerita dari IndexedDB
+  return db.getAll(STORE_NAME);
 };
 
 // Fungsi untuk menghapus cerita dari IndexedDB

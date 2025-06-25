@@ -1,4 +1,4 @@
-import { routes } from './routes/routes.js';  // ✅ Ubah ke named import
+import { routes } from './routes/routes.js';  
 
 const router = async () => {
   const url = window.location.hash.slice(1).toLowerCase() || '/';

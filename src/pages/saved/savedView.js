@@ -1,5 +1,4 @@
-// src/pages/saved/savedView.js
-import savedPresenter from './savedPresenter.js';  // Import presenter untuk halaman Saved Stories
+import savedPresenter from './savedPresenter.js';  
 
 export default class SavedStoriesPage {
   async render() {

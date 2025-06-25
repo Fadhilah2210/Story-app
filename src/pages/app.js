@@ -1,12 +1,12 @@
-import { getActiveRoute } from '../routes/url-parser.js';
+import { getActiveRoute } from "../routes/url-parser.js";
 import {
   generateAuthenticatedNavigationListTemplate,
   generateMainNavigationListTemplate,
   generateUnauthenticatedNavigationListTemplate,
-} from '../template.js';
-import { setupSkipToContent, transitionHelper } from '../utils/index.js';
-import { getAccessToken, getLogout } from '../utils/auth.js';
-import { routes } from '../routes/routes.js';
+} from "../template.js";
+import { setupSkipToContent, transitionHelper } from "../utils/index.js";
+import { getAccessToken, getLogout } from "../utils/auth.js";
+import { routes } from "../routes/routes.js";
 
 export default class App {
   #content;
@@ -34,35 +34,37 @@ export default class App {
   #setupDrawer() {
     if (!this.#drawerButton || !this.#drawerNavigation) return;
 
-    this.#drawerButton.addEventListener('click', () => {
-      this.#drawerNavigation.classList.toggle('open');
+    this.#drawerButton.addEventListener("click", () => {
+      this.#drawerNavigation.classList.toggle("open");
     });
 
-    document.body.addEventListener('click', (event) => {
-      const isTargetInsideDrawer = this.#drawerNavigation.contains(event.target);
+    document.body.addEventListener("click", (event) => {
+      const isTargetInsideDrawer = this.#drawerNavigation.contains(
+        event.target
+      );
       const isTargetInsideButton = this.#drawerButton.contains(event.target);
 
       if (!(isTargetInsideDrawer || isTargetInsideButton)) {
-        this.#drawerNavigation.classList.remove('open');
+        this.#drawerNavigation.classList.remove("open");
       }
 
-      this.#drawerNavigation.querySelectorAll('a').forEach((link) => {
+      this.#drawerNavigation.querySelectorAll("a").forEach((link) => {
         if (link.contains(event.target)) {
-          this.#drawerNavigation.classList.remove('open');
+          this.#drawerNavigation.classList.remove("open");
         }
       });
     });
   }
 
   #setupLogoutButton() {
-    const logoutButton = document.getElementById('logout-button');
+    const logoutButton = document.getElementById("logout-button");
     if (logoutButton) {
-      logoutButton.addEventListener('click', (event) => {
+      logoutButton.addEventListener("click", (event) => {
         event.preventDefault();
 
-        if (confirm('Apakah Anda yakin ingin keluar?')) {
+        if (confirm("Apakah Anda yakin ingin keluar?")) {
           getLogout();
-          location.hash = '/login';
+          location.hash = "/login";
         }
       });
     }
@@ -72,13 +74,13 @@ export default class App {
     if (!this.#drawerNavigation) return;
 
     const isLogin = !!getAccessToken();
-    const navListMain = this.#drawerNavigation.querySelector('#navlist-main');
-    const navList = this.#drawerNavigation.querySelector('#navlist');
+    const navListMain = this.#drawerNavigation.querySelector("#navlist-main");
+    const navList = this.#drawerNavigation.querySelector("#navlist");
 
     if (!navListMain || !navList) return;
 
     if (!isLogin) {
-      navListMain.innerHTML = '';
+      navListMain.innerHTML = "";
       navList.innerHTML = generateUnauthenticatedNavigationListTemplate();
       return;
     }
@@ -89,21 +91,21 @@ export default class App {
 
   async renderPage() {
     const url = getActiveRoute();
-    const route = routes[url] || routes['/'];
+    const route = routes[url] || routes["/"];
 
     const page = route();
 
     if (!page || !page.render) {
       if (!getAccessToken()) {
-        alert('Anda harus login terlebih dahulu.');
-        location.hash = '/login';
+        alert("Anda harus login terlebih dahulu.");
+        location.hash = "/login";
         return;
       }
 
       this.#content.innerHTML = `<p>Halaman tidak ditemukan.</p>`;
       return;
     }
-    
+
     const transition = transitionHelper({
       updateDOM: async () => {
         // Proses render halaman
@@ -113,7 +115,7 @@ export default class App {
     });
 
     transition.updateCallbackDone.then(() => {
-      scrollTo({ top: 0, behavior: 'instant' });
+      scrollTo({ top: 0, behavior: "instant" });
       this.#setupNavigationList();
     });
   }

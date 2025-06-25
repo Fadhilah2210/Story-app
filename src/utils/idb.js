@@ -1,4 +1,3 @@
-// src/utils/idb.js
 import { saveStory, deleteStory, getAllStories } from '../modeldb/idbHelper.js';
 
 // Menyimpan cerita ke IndexedDB

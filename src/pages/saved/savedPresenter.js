@@ -1,6 +1,6 @@
 // src/pages/saved/savedPresenter.js
 import { getAllStories, deleteStory } from '../../modeldb/idbHelper.js';
-import createSavedStoryTemplate from './savedItemTemplate.js'; // ✅ Import dari file baru
+import createSavedStoryTemplate from './savedItemTemplate.js'; 
 
 const savedPresenter = {
   async render() {
@@ -13,7 +13,7 @@ const savedPresenter = {
     } else {
       stories.forEach((story) => {
         const storyElement = document.createElement('div');
-        storyElement.innerHTML = createSavedStoryTemplate(story); // ✅ Fungsi template yang benar
+        storyElement.innerHTML = createSavedStoryTemplate(story); 
         container.appendChild(storyElement);
       });
     }

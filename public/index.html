@@ -14,7 +14,12 @@
     <meta name="theme-color" content="#4a90e2" />
 
     <!-- App Icon for Favicon -->
-    <link rel="icon" href="icons/icon-192.png" sizes="192x192" type="image/png" />
+    <link
+      rel="icon"
+      href="icons/icon-192.png"
+      sizes="192x192"
+      type="image/png"
+    />
 
     <style>
       header {
@@ -112,22 +117,23 @@
           <a href="#/">🏠 Home</a>
           <a href="#/new">➕ Add Story</a>
           <a href="#/login" id="logout-button">🔓 Logout</a>
-          <a href="#/saved" id="offline-stories-link">📚 Lihat Cerita Offline</a>
+          <a href="subcribe" id="subs-button">🔓 Subscribe</a>
+          <a href="#/saved" id="offline-stories-link"
+            >📚 Lihat Cerita Offlines</a
+          >
         </div>
       </div>
     </header>
 
-    <main id="main-content" style="padding-top: 100px;">
+    <main id="main-content" style="padding-top: 100px">
       <div id="app"></div>
     </main>
 
-    <footer>
-      © Coding Camp 2025
-    </footer>
+    <footer>© Coding Camp 2025</footer>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script type="module" src="../src/index.js"></script>
-    <script src="./bundle.js"></script> <!-- BENAR -->
-
+    <script src="./bundle.js"></script>
+    <!-- BENAR -->
   </body>
 </html>
